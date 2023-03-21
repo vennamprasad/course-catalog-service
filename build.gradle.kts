@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 plugins {
 	id("org.springframework.boot") version "3.0.4"
@@ -18,22 +17,26 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-validation")
+	//web
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	//validation
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+	//kotlin
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	//db
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("com.h2database:h2")
-	runtimeOnly("org.postgresql:postgresql")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	/*runtimeOnly("org.postgresql:postgresql")*/
 
 	//logging
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webflux")
-	testImplementation("io.mockk:mockk:1.10.4")
-	testImplementation("com.ninja-squad:springmockk:3.0.1")
+	testImplementation("io.mockk:mockk:1.13.4")
+	testImplementation("com.ninja-squad:springmockk:4.0.2")
 
 }
 

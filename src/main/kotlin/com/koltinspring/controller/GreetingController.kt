@@ -16,7 +16,4 @@ class GreetingController(val greetingService: GreetingService) {
         logger.info("Name is : $name")
         return greetingService.retrieveGreeting(name)
     }
-    /*: String {
-        return "Hello $name"
-    }*/
 }
